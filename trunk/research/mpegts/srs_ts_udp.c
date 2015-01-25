@@ -273,7 +273,7 @@ int32_t main(int32_t argc, char **argv){
 		ts->priv_data = &ip_list.addr[i];
 		ts_register_output_callback(ts, es_output);
 		ts_register_config_callback(ts, ts_out_es_config);
-		ts_epoll_add(epfd, ip_list.addr[i].sk.fd, ts);
+		ts_epoll_add(epfd, ip_list.addr[i].sk.fd, &ip_list_addr[i]);
 	}
 
 	ts2es_is_run = result;
